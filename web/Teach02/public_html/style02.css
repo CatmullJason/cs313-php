@@ -1,0 +1,22 @@
+.div1 {
+    background-color: lightblue;
+    font-size: 20px;
+}
+
+.div2 {
+    background-color: red;
+    font-size: 35px;
+}
+
+.div3 {
+    background-color: blue;
+    font-size: 45px;
+}
+
+.bold:hover {
+    font-weight: bold;
+}
+
+.body {
+    text-align: center;
+}
