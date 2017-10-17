@@ -1,0 +1,36 @@
+
+#These are used in local creation of database
+
+CREATE DATABASE tickets;
+
+\c helpDesk;
+
+#The rest of these commands are used for creation of 
+#tables within the heroku app or in the local environment
+
+CREATE TABLE public.restaurant
+(
+	restaurant_id VARCHAR(10) NOT NULL PRIMARY KEY,
+	name VARCHAR(100) NOT NULL,
+	address VARCHAR(200) NOT NULL UNIQUE,
+	zip_code VARCHAR(10) NOT NULL,
+	phone BIGINT NOT NULL UNIQUE
+);
+
+CREATE TABLE public.user
+(
+	user_id VARCHAR(10) NOT NULL PRIMARY KEY,
+	name VARCHAR(100) NOT NULL,
+	job_title VARCHAR(100) NOT NULL,
+	phone BIGINT NOT NULL UNIQUE
+);
+
+CREATE TABLE public.ticket
+(
+	ticket_id SERIAL NOT NULL PRIMARY KEY,
+	restaurant_id VARCHAR(10) NOT NULL REFERENCES public.restaurant(restaurant_id),
+	user_id VARCHAR(10) NOT NULL REFERENCES public.user(user_id),
+	date_created DATE NOT NULL,
+	max_priority BOOLEAN NOT NULL,
+	comment TEXT NOT NULL
+);
