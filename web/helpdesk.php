@@ -96,7 +96,7 @@ else
 
 		echo '</table>';
 		?>
-	</div>
+	</div><br><br>
 	<div class="bodydiv">
 		<form  action="logout.php">
 			<button type="submit">logout</button>
