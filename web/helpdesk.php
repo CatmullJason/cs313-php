@@ -5,25 +5,36 @@ require "dbConnect.php";
 $db = get_db();
 
 //the next section of php authenticates the username and password for admin
-$count = 0;
+
+if (isset($_SESSION['login_user']))
+{
+}
+else
+{
 $name = $_POST['username'];
 $password = $_POST['password'];
+
 $statement = $db->prepare('SELECT name, password FROM public.admin WHERE name=:name AND password = crypt(:password, password)');
 $statement->bindValue(':name', $name, PDO::PARAM_STR);
 $statement->bindValue(':password', $password, PDO::PARAM_STR);
 $statement->execute();
 
+$isUserExistingAndCorrect = false;
+
 while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	{
-		$count++;
+		$isUserExistingAndCorrect = true;
 	}
 
 //if username and password match proceed, otherwise redirect
-if ($count > 0)
-{}
+if ($isUserExistingAndCorrect)
+{
+	$_SESSION['login_user']= $name;
+}
 else 
 {
 	header("Location: sorry.php");
+}
 }
 
 ?>
@@ -85,6 +96,11 @@ else
 
 		echo '</table>';
 		?>
+	</div>
+	<div class="bodydiv">
+		<form  action="logout.php">
+			<button type="submit">logout</button>
+		</form>
 	</div>
 	</body>
 	</html>

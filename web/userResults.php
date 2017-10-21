@@ -3,6 +3,14 @@ session_name("ticket");
 session_start();
 require "dbConnect.php";
 $db = get_db();
+
+if (isset($_SESSION['login_user']))
+{
+}
+else
+{
+	header("Location: sorry.php");
+}
 ?>
 
 <!DOCTYPE html>
