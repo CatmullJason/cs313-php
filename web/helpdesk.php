@@ -4,6 +4,28 @@ session_start();
 require "dbConnect.php";
 $db = get_db();
 
+//the next section of php authenticates the username and password for admin
+$count = 0;
+$name = $_POST['username'];
+$password = $_POST['password'];
+$statement = $db->prepare('SELECT name, password FROM public.admin WHERE name=:name AND password = crypt(:password, password)');
+$statement->bindValue(':name', $name, PDO::PARAM_STR);
+$statement->bindValue(':password', $password, PDO::PARAM_STR);
+$statement->execute();
+
+while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+	{
+		$count++;
+	}
+
+//if username and password match proceed, otherwise redirect
+if ($count > 0)
+{}
+else 
+{
+	header("Location: sorry.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -32,9 +54,6 @@ $db = get_db();
 			</select>
 			<button type='submit'>Submit</button>
 		</form>
-
-		
-
 	</div><br><br>
 	<div class="bodydiv">
 		<h1>Current Ticket List</h1>

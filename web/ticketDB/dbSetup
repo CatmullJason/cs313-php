@@ -34,3 +34,11 @@ CREATE TABLE public.ticket
 	max_priority BOOLEAN NOT NULL,
 	comment TEXT NOT NULL
 );
+
+CREATE TABLE public.admin
+(
+	name VARCHAR(80) NOT NULL UNIQUE,
+	password VARCHAR(80) NOT NULL UNIQUE
+);
+
+CREATE EXTENSION pgcrypto;

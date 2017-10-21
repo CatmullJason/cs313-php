@@ -27,3 +27,11 @@ VALUES ('637445', 'Johnny McGaff', 'Waiter', '5556885444');
 
 INSERT INTO public.ticket (restaurant_id, user_id, date_created, max_priority, comment)
 VALUES ('444444', '637445', '2017-10-13', false, 'I need new coasters ASAP.');
+
+
+
+
+#This is our admin user
+
+INSERT INTO public.admin (name, password) 
+VALUES ('admin', crypt('admin', gen_salt('bf', 8)));
