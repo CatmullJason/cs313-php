@@ -43,14 +43,14 @@
 	</div><br><br>
 	<div class="bodydiv" style="background: #a0b6db;">
 		<h2>Create New Ticket</h2>
-		<p style="font-size: 12px"><strong>(Enter your 6-digit User ID<br>
-		and your 6-digit Restaurant ID)</strong></p>
+		<p style="font-size: 12px"><strong>(For testing enter any<br>
+		 two 6-digit numbers)</strong></p>
 		<p style="color: red; font-size: 12px">Required (*)</p>
 		<form action="intermediate.php" method="post" id="ticketForm" name="ticketForm">
-			<label for="userID">User ID Number:</label><br>
+			<label for="userID"><strong>User ID Number:</strong><br>(6 digits)</label><br>
 			<input type="text" name="userID" id="userID" maxlength="6"></input>*<br>
 			<span id="userIdError" style="color: red"></span><br><br>
-			<label for="restID">Restaurant ID Number:</label><br>
+			<label for="restID"><strong>Restaurant ID Number:</strong><br>(6 digits)</label><br>
 			<input type="text" name="restID" id="restID" maxlength="6"></input>*<br>
 			<span id="restaurantIdError" style="color: red"></span><br><br>
 			<input class="button button1" type="submit" value="Submit" />
@@ -62,9 +62,9 @@
 			username: admin<br>
 			password: admin)</strong></p>
 		<form action="helpdesk.php" method="post">
-			<label for="username">Username:</label><br>
+			<label for="username"><strong>Username:</strong></label><br>
 			<input type="text" name="username"></input><br><br><br>
-			<label for="password">Password:</label><br>
+			<label for="password"><strong>Password:</strong></label><br>
 			<input type="password" name="password"></input><br><br>
 			<input class="button button1" type="submit" value="Login" />
 		</form>

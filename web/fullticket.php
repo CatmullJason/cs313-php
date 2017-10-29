@@ -21,7 +21,7 @@ $db = get_db();
 			match any current users or restaurants. <br>
 			Please fill out the form below to submit<br>
 			a new ticket.</h2>
-		<h3><p style="color: red;">(Required Fields (*))</p></h3>
+		<h3><p style="color: red;">Required Fields (*)</p></h3>
 		<?php echo '<strong>User ID: ' . $_SESSION['userID'] . '<br>Restaurant ID: ' . $_SESSION['restID'] . '</strong><br>';
 		?>
 		<form action="fullticketconfirm.php" method="post">
@@ -37,17 +37,17 @@ $db = get_db();
 			<input type="text" name="restaurant" required></input>*<br><br>
 			<label for="address">Address:</label><br>
 			<input type="text" name="address" required></input>*<br><br>
-			<label for="zip">Zip Code:</label><br>
+			<label for="zip">Zip Code:<br>(5 digits)</label><br>
 			<input type="text" name="zip" maxlength="5" minlength="5" required></input>*<br><br>
 			<label for="restPhone">Restaurant Phone #:</label><br>
 			<input type="text" name="restPhone" required></input>*<br><br>
 			<h2><u>Ticket</u></h2>
 			<label for="date">Date of Ticket Submission:</label><br>
 			<input type="date" name="date" required></input>*<br><br>
-			<label for="comment">Issue/Conern:</label><br>
+			<label for="comment">Issue/Concern:</label><br>
 			<textarea rows="5" cols="70" name="comment" required></textarea>*<br><br>
-			<labeL for="priority">Maximum Priority</labeL>
-			<input type="checkbox" name="priority" checked="checked"></input><br><br><br>
+			<labeL style="font-size: 20px" for="priority"><strong>Maximum Priority</strong></labeL>
+			<input type="checkbox" name="priority" checked="checked"></input><br><br><br><br>
 			<input class="button button1" type="submit" value="Submit" />
 		</form>		
 	</div><br>
