@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Help Desk</title>
+	<link rel="stylesheet" href="ticketstyle.css">
+	<script>
+		//make sure valid ID's are given
+		window.onload = function(){
+			function handleinput(){
+				var isUserValid = false;
+				var isRestValid = false;
+				var user = document.getElementById("userID").value;
+				var restaurant = document.getElementById("restID").value;
+				if(/^\d{6}$/.test(user)){
+					document.getElementById("userIdError").innerHTML = "";
+					isUserValid = true;
+				}
+				else{
+					document.getElementById("userIdError").innerHTML = "The User ID must be 6 digits in length";
+					isUserValid = false;
+				}
+
+				if(/^\d{6}$/.test(restaurant)){
+					document.getElementById("restaurantIdError").innerHTML = "";
+					isRestValid = true;
+				}
+				else{
+					document.getElementById("restaurantIdError").innerHTML = "The Restaurant must be 6 digits in length";
+					isRestValid = false;
+				}
+
+				if (isUserValid == false || isRestValid == false){
+					return false;
+				}
+			}
+			document.getElementById("ticketForm").onsubmit = handleinput;
+		}
+	</script>
+</head>
+<body>
+	<div class="header">
+		Lucky Dine Help Desk
+	</div><br><br>
+	<div class="bodydiv" style="background: #a0b6db;">
+		<h2>Create New Ticket</h2>
+		<p style="font-size: 12px"><strong>(Enter your 6-digit User ID<br>
+		and your 6-digit Restaurant ID)</strong></p>
+		<p style="color: red; font-size: 12px">Required (*)</p>
+		<form action="intermediate.php" method="post" id="ticketForm" name="ticketForm">
+			<label for="userID">User ID Number:</label><br>
+			<input type="text" name="userID" id="userID" maxlength="6"></input>*<br>
+			<span id="userIdError" style="color: red"></span><br><br>
+			<label for="restID">Restaurant ID Number:</label><br>
+			<input type="text" name="restID" id="restID" maxlength="6"></input>*<br>
+			<span id="restaurantIdError" style="color: red"></span><br><br>
+			<input class="button button1" type="submit" value="Submit" />
+		</form>		
+	</div><br><br>
+	<div class="bodydiv" style="background: #a0b6db;">
+		<h2>Administrator Login</h2>
+		<p style="font-size: 12px"><strong>(For testing purposes<br>
+			username: admin<br>
+			password: admin)</strong></p>
+		<form action="helpdesk.php" method="post">
+			<label for="username">Username:</label><br>
+			<input type="text" name="username"></input><br><br><br>
+			<label for="password">Password:</label><br>
+			<input type="password" name="password"></input><br><br>
+			<input class="button button1" type="submit" value="Login" />
+		</form>
+	</div><br><br><br>
+	<div style="text-align: center; line-height: 60px; height: 60px;"">
+		<a href="assignments.html">Return to Assignments</a>
+	</div>
+</body>
+</html>
