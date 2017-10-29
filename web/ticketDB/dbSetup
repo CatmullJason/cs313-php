@@ -32,7 +32,8 @@ CREATE TABLE public.ticket
 	user_id VARCHAR(10) NOT NULL REFERENCES public.user(user_id),
 	date_created DATE NOT NULL,
 	max_priority BOOLEAN NOT NULL,
-	comment TEXT NOT NULL
+	comment TEXT NOT NULL,
+	solved BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE public.admin
